@@ -7,6 +7,7 @@
     <title>The band</title>
     <link rel="icon" href="./assets/img/icon-title.png" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
 </head>
 <body>
@@ -34,6 +35,10 @@
             <!-- Begin: Search -->
             <div class="search-btn">
                 <i class="search-icon ti-search"></i>
+            </div>
+
+            <div id="mobile-menu" class="mobile-menu-btn">
+                <i class="menu-icon ti-menu"></i>
             </div>
             <!-- End: Search -->
         </div>
@@ -167,5 +172,19 @@
             <p class="copyright">Powered by <a href="">Huỳnh Cảnh</a></p>
         </div>
     </div>
+
+    <script>
+        var header = document.getElementById('header');
+        var mobileMenu = document.getElementById('mobile-menu');
+        var headerHeight = header.clientHeight;
+        mobileMenu.onclick = function(){
+            var isClosed = header.clientHeight === headerHeight;
+            if(isClosed){
+                header.style.height = 'auto';
+            }else{
+                header.style.height = '46px';
+            }
+        }
+    </script>
 </body>
 </html>
