@@ -95,7 +95,7 @@
                                 <p class="place-desc">
                                     Java, aws, angular, spring, rest, postgres, sql, Docker, writing complex integration test cases.    
                                 </p>
-                                <a href="" class="btn s-full-width">Buy Tickets</a>
+                                <button class="btn s-full-width js-buy-ticket">Buy Tickets</button>
                             </div>
                         </div>
                         <div class="col col-third s-col-full mt-16">
@@ -106,7 +106,7 @@
                                 <p class="place-desc">
                                     Java, aws, angular, spring, rest, postgres, sql, Docker, writing complex integration test cases.    
                                 </p>
-                                <a href="" class="btn s-full-width">Buy Tickets</a>
+                                <button class="btn s-full-width js-buy-ticket">Buy Tickets</button>
                             </div>
                         </div>
                         <div class="col col-third s-col-full mt-16">
@@ -117,7 +117,7 @@
                                 <p class="place-desc">
                                     Java, aws, angular, spring, rest, postgres, sql, Docker, writing complex integration test cases.    
                                 </p>
-                                <a href="" class="btn s-full-width">Buy Tickets</a>
+                                <button class="btn s-full-width js-buy-ticket">Buy Tickets</button>
                             </div>
                         </div>
                     </div>
@@ -173,9 +173,9 @@
         </div>
     </div>
 
-    <div class="modal">
-        <div class="modal-container">
-            <div class="modal-close">
+    <div class="modal js-modal">
+        <div class="modal-container js-modal-container">
+            <div class="modal-close js-modal-close">
                 <i class="ti-close"></i>
             </div>
             <header class="modal-header">
@@ -234,6 +234,34 @@
                 }
             }
         }
+    </script>
+
+    <script>
+        const buyBtns = document.querySelectorAll('.js-buy-ticket');
+        const modal = document.querySelector('.js-modal');
+        const modalContainer = document.querySelector('.js-modal-container');
+        const modalClose = document.querySelector('.js-modal-close');
+        
+        function showBuyTickets(){
+            modal.classList.add('open');
+            console.log(123);
+        }
+        
+        function hideBuyTickets(){
+            modal.classList.remove('open');
+        }
+
+        for(const buyBtn of buyBtns){
+            buyBtn.addEventListener('click', showBuyTickets);
+        }1
+
+        modalClose.addEventListener('click', hideBuyTickets);
+
+        modal.addEventListener('click', hideBuyTickets);
+
+        modalContainer.addEventListener('click', function(event){
+            event.stopPropagation();
+        });
     </script>
 </body>
 </html>
